@@ -1,0 +1,8 @@
+[
+    {
+		"id": "config_path",
+		"label": "Path to Plex configuration folder",
+		"type": "text",
+        "default": "/config/Library/Application Support/Plex Media Server"
+	}
+]
