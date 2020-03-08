@@ -1,8 +1,6 @@
-import os
-import shutil
-import io
-import codecs
-import sys
+import os, string, hashlib, base64, re, plistlib, unicodedata
+import config
+import localaudio
 
 
 def Start():
@@ -34,3 +32,11 @@ class separateMediaPartsAgentMovies(Agent.Movies):
     def update(self, metadata, media, lang, force):
         """ Handle the object returned to us, so we
         can find the directory to look in """
+        
+        Log.Debug("Separate media agent Movie update")
+        
+        # Clear out the title to ensure stale data doesn't clobber other agents' contributions.
+        metadata.title = None
+        
+        for item in media.items:
+            localaudio.findAudio(item.parts)
