@@ -1,0 +1,2 @@
+SUBTITLE_EXTS = ['utf','utf8','utf-8','srt','smi','rt','ssa','aqt','jss','ass','idx','sub','txt', 'psb', 'vtt']
+AUDIO_TRACKS = ['mka','ac3','dts','dtshd','eac3','flac','m4a','mp3','mpa','oga','ogg','opus','thd']
