@@ -1,4 +1,4 @@
-# Separate media parts feature
+Separate media parts feature
 =========
 
 The idea of this feature is to have separate files for video, audio and subtitles. In that case, one can have multiple video files in different resolutions and codecs, multiple audio files also in different quality and then combine them together during playback. The result is that Plex can support different players (TVs, Web, PC, etc.) and serve them content, that is best suited for such player, without actual need of cpu expensive transcoding. Of course, muxing on the server side is needed for that. On the other hand, muxing is relatively inexpensive task. That´s what i.e. youtube is doing with their videos.
@@ -21,7 +21,7 @@ The Movie (2020) /base folder for the movie/
 - … similarly subtitles for other languages …
 - Trailers /or any other folder for local assets/
 
-The good thing here is, that majority of plex clients will choose the best configuration for them. So for example my PC on local network choose 4k HDR hevc video with Atmos audio track. When I open the same movie in the remote web browser, the client will choose 720p avc video with aac stereo audio track, etc. So the spectator is always served with the best looking content, that his device can handle.
+The good thing here is, that majority of plex clients will choose the best configuration for them. So for example my PC on local network choose 4k HDR hevc video with Atmos audio track. When I open the same movie in remote web browser, the client will choose 720p avc video with aac stereo audio track, etc. So the spectator is always served with the best looking content, that his device can handle.
 
 ## What is needed
 
@@ -31,7 +31,9 @@ When you want to play the movie, Plex needs to know, that it has to mux audio an
 
 ## Metadata agent
 
-Metadata agent (plugin) for identifying separated audio files for the video files. It is required as the first step for using separate audio feature. Firstly, you have to install this agent as any other metadata agent or Plex plugin. You can find the steps, how to do that, on the [Plex support](https://support.plex.tv/articles/201187656-how-do-i-manually-install-a-plugin/). You have to extract the content of this repository into folder 
+Metadata agent (plugin) for identifying separated audio files for the video files. It is required as the first step for using separate audio feature.
+
+Firstly, you have to install this agent as any other metadata agent or Plex plugin. You can find the steps, how to do that, on the [Plex support](https://support.plex.tv/articles/201187656-how-do-i-manually-install-a-plugin/). You have to extract the content of this repository into folder 
 
 ```
 path_to_plex_config_folder/Plex Media Server/Plug-ins/SeparateMediaParts.bundle
@@ -39,17 +41,23 @@ path_to_plex_config_folder/Plex Media Server/Plug-ins/SeparateMediaParts.bundle
 
 Then in the agents settings for the movies, you need to config and enable this agent. There are two things, that needs to be configured:
 
-- Path to the library folder. That is the configuration folder, where the configuration of Plex is stored. For docker, it is /config/Library.
+- Path to the library folder. That is the folder, where the configuration of Plex is stored. For docker, it is /config/Library.
 - Path to the ffmpeg tool. In order to parse information from the audio tracks, ffprobe is used. This path leads the script to the folder, where ffprobe is located. Use the folder, script will automaticaly adds ffprobe.
 
-Now, whenever metadata for the movie in the Library are scaned, this agent will also scan for the sided audio tracks and adds them to the movie.
+Now, whenever metadata for the movie in the Library are scanned, this agent will also scan for the sided audio tracks and adds them to the movie.
 
 # Known issues
 
-This feature is proven to be working on Plex Web Client, Plex Windows Client and Plex iOS Client. Others haven't been tested. Also there is an issue with Plex for Kodi addon. This addon completely fails to cooperate with this feature and results in the Playback failure when used.
+This feature is proven to be working on Plex Web Client, Plex Windows Client and Plex iOS Client. Others haven't been tested.
+
+Also there is an issue with Plex for Kodi addon. This addon completely fails to cooperate with this feature and results in the Playback failure when used. Probably, this will be also valid for Roku client, because of the similarities in the source codes.
 
 # Disclaimer
 
 This feature is provided as is without any support and responsibility. It is not mature enough to be widely used. So use it only on your own risk and be 100 % sure that you know what you are doing. Unfortunatelly, expected behavior of this feature is reachable only with direct altering of Plex databse and replacing core components of Plex Media Server - therefore it is not how Plex is intendend to be used.
 
 Please note that this Github repositories are only mirrors of my private personal git repositories, that I am using and developing against.
+
+# Credits
+
+The idea for this feature is based on the job of [Saoneth](https://github.com/Saoneth). Also, I've reused and extend some of his scripts. You can find his implematation in its [github repository](https://github.com/Saoneth/plex-custom-audio)
