@@ -1,8 +1,14 @@
 [
     {
-		"id": "config_path",
-		"label": "Path to Plex configuration folder",
+		"id": "ffmpeg_path",
+		"label": "Path to FFmpeg tool",
 		"type": "text",
-        "default": "/config/Library/Application Support/Plex Media Server"
+        "default": "/config/ffmpeg"
+	},
+	{
+		"id": "library_path",
+		"label": "Path to Library folder",
+		"type": "text",
+        "default": "/config/Library"
 	}
 ]

@@ -6,7 +6,7 @@
 	<string>com.plexapp.agents.separatemedia</string>
 	<key>PlexAgentAttributionText</key>
 	<string>
-		The main purpose of this agent is to handle sided audio and subtitle for multiversion video files.	</string>
+		The main purpose of this agent is to handle sided audio and subtitle for multiversion video files.</string>
 	<key>PlexFrameworkVersion</key>
 	<string>2</string>
 	<key>PlexPluginClass</key>
