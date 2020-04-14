@@ -43,7 +43,17 @@ def findAudio(parts, conn):
         (media_part_id, media_item_id) = cur.fetchone()
         cur.close
 
-        last_index = 1000
+        last_index = 0
+        for stream in [x for x in part.streams if x.type == 2]:
+            if last_index < stream.index:
+                last_index = stream.index
+        last_index = last_index + 1
+        if last_index < 1000:
+            Log.Debug('There is no sided audio stream for current video file. Setting audio stream index to 1000')
+            last_index = 1000
+        else:
+            Log.Debug('Sided audio stream for current video file was found. Setting audio stream index to %s', last_index)
+
         found_audio_streams = []
         for file_path in sorted(os.listdir(dir_path)):
             file_path = helpers.unicodize(file_path)
@@ -124,7 +134,7 @@ def findAudio(parts, conn):
                     Log.Debug('Audio track %s is already assigned',file_path)
                     continue
 
-                Log.Debug('Adding audio track %s to the processed item',file_path)
+                Log.Debug('Adding audio track %s to the processed item with stream index %s',file_path, last_index)
                 
                 
                 date = time.strftime('%Y-%m-%d %H:%M:%S')
