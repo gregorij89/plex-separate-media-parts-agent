@@ -20,7 +20,8 @@ class separateMediaPartsAgentMovies(Agent.Movies):
         'com.plexapp.agents.imdb',
         'com.plexapp.agents.themoviedb',
         'com.plexapp.agents.plexmovie',
-        'com.plexapp.agents.none']
+        'com.plexapp.agents.none',
+        'tv.plex.agents.movie']
 
     def search(self, results, media, lang, manual):
         Log.Debug("---------------------BEGIN SEARCH---------------------")
