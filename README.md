@@ -54,7 +54,7 @@ Also there is an issue with Plex for Kodi addon. This addon completely fails to 
 
 # Disclaimer
 
-This feature is provided as is without any support and responsibility. It is not mature enough to be widely used. So use it only on your own risk and be 100 % sure that you know what you are doing. Unfortunatelly, expected behavior of this feature is reachable only with direct altering of Plex databse and replacing core components of Plex Media Server - therefore it is not how Plex is intendend to be used.
+This feature is provided as is without any support and responsibility. It is not mature enough to be widely used. So use it only on your own risk and be 100 % sure that you know what you are doing. Unfortunatelly, expected behavior of this feature is reachable only with direct altering of Plex database and replacing core components of Plex Media Server - therefore it is not how Plex is intendend to be used.
 
 Please note that this Github repositories are only mirrors of my private personal git repositories, that I am using and developing against.
 
